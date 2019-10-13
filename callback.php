@@ -1,8 +1,8 @@
 <?php
 require "./MessagingApi.php";
 
-const ACCESS_TOKEN = "SYzSBq2qH6ryDc0eOMEf05CkLulp7g7O5Mfv633eRDdyG9tJDaRzJ6KSxRL9cz39heCtXyoGxyuLmV4pHhXH3rC58QuF3kT2zJ7/OPKvocowXpO1WoAniTFtUj6gCG4ll2JhkAihA0MhfTLr5Ivu9QdB04t89/1O/w1cDnyilFU=";
-const CHANNEL_SECRET = "deb65e275f7542e8d51eba7b5fd6b4c2";
+const ACCESS_TOKEN = "";
+const CHANNEL_SECRET = "";
 
 $requestBody = file_get_contents("php://input");
 $messageObject = json_decode($requestBody, true);
