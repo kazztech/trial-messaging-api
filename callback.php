@@ -3,6 +3,7 @@
 
 require "./MessagingApi.php";
 
+// MessagingAPIの設定画面から発行されるもの
 const ACCESS_TOKEN = "";
 const CHANNEL_SECRET = "";
 
