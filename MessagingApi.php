@@ -55,7 +55,7 @@ class MessagingApi
         $messageEvent = $this->messageObject["events"][0];
 
         switch ($messageEvent["type"]) {
-            case "// テキストメッセージが送られてきたときのイベント":
+            case "message":
                 if ($event === "message") return true;
                 $messageType = $messageEvent["message"]["type"];
                 switch ($messageType) {
