@@ -1,4 +1,6 @@
 <?php
+// MessagingApiクラスの使い方例
+
 require "./MessagingApi.php";
 
 const ACCESS_TOKEN = "";
