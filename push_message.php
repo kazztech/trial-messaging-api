@@ -13,5 +13,10 @@ $messages[] = [
     "type" => "text",
     "text" => "PUSH!!!"
 ];
-$line->sendPushMessage($messages, ["userid"]);
-// or $line->sendBroadcastMessage($messages); // 登録者全員に送信
+// 登録者全員に送信
+if ($line->sendBroadcastMessage($messages)) {
+    echo "PUSH成功";
+} else {
+    echo "PUSH失敗";
+}
+// or $line->sendPushMessage($messages, ["userid"]); // 指定ユーザーに送信

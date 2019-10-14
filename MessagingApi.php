@@ -109,9 +109,10 @@ class MessagingApi
      * 注: 仕様上、１つのreplyTokenにつき１回のみ
      * 
      * @param  array $messages 送信するメッセージ
+     * @param bool $noticeDisabled 通知なし: true
      * @return bool 送信成功(ステータスコード200): true
      */
-    public function sendReply(array $messages): bool
+    public function sendReply(array $messages, bool $noticeDisabled = false): bool
     {
         $url = self::MESSAGING_API_URL . "/bot/message/reply";
         $headers = [
@@ -120,7 +121,8 @@ class MessagingApi
         ];
         $body = json_encode([
             "replyToken" => $this->messageObject["events"][0]["replyToken"],
-            "messages"   => $messages
+            "messages"   => $messages,
+            "notificationDisabled" => $noticeDisabled
         ]);
 
         list($binaryContent, $httpStatusCode) = $this->httpPostRequest($url, $headers, $body);
@@ -151,9 +153,10 @@ class MessagingApi
      * 
      * @param array $messages 送信するメッセージ
      * @param array $to 送信先UserID配列
+     * @param bool $noticeDisabled 通知なし: true
      * @return bool 送信成功(ステータスコード200):true
      */
-    public function sendPushMessage(array $messages, array $to): bool
+    public function sendPushMessage(array $messages, array $to, bool $noticeDisabled = false): bool
     {
         $url = self::MESSAGING_API_URL . "/bot/message/multicast";
         $headers = [
@@ -162,7 +165,8 @@ class MessagingApi
         ];
         $body = json_encode([
             "to" => $to,
-            "messages" => $messages
+            "messages" => $messages,
+            "notificationDisabled" => $noticeDisabled
         ]);
 
         list($binaryContent, $httpStatusCode) = $this->httpPostRequest($url, $headers, $body);
@@ -174,9 +178,10 @@ class MessagingApi
      * 全クライアントにPUSHメッセージ送信
      * 
      * @param array $messages 送信するメッセージ
+     * @param bool $noticeDisabled 通知なし: true
      * @return bool 送信成功(ステータスコード200):true
      */
-    public function sendBroadcastMessage(array $messages): bool
+    public function sendBroadcastMessage(array $messages, bool $noticeDisabled = false): bool
     {
         $url = self::MESSAGING_API_URL . "/bot/message/broadcast";
         $headers = [
@@ -184,7 +189,8 @@ class MessagingApi
             "Authorization: Bearer " . $this->accessToken
         ];
         $body = json_encode([
-            "messages" => $messages
+            "messages" => $messages,
+            "notificationDisabled" => $noticeDisabled
         ]);
 
         list($binaryContent, $httpStatusCode) = $this->httpPostRequest($url, $headers, $body);
