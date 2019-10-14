@@ -3,6 +3,7 @@
 /**
  * LINEBOT MessagingAPIの便利クラス
  * 
+ * PHP version >= 7.1
  * @author kazz
  * @link https://kazzstorage.com
  */
