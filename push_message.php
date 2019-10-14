@@ -3,9 +3,8 @@ require "./MessagingApi.php";
 
 // MessagingAPIの設定画面から発行されるもの
 const ACCESS_TOKEN = "";
-const CHANNEL_SECRET = "";
 
-$line = new MessagingApi(ACCESS_TOKEN, CHANNEL_SECRET);
+$line = new MessagingApi(ACCESS_TOKEN);
 
 // 送信
 $messages = [];

@@ -22,7 +22,7 @@ class MessagingApi
      */
     public function __construct(
         string $accessToken,
-        string $channelSecret,
+        string $channelSecret = null,
         array $messageObject = null
     ) {
         $this->accessToken = $accessToken;
