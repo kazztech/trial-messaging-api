@@ -54,7 +54,7 @@ class MessagingApi
     public function eventMatched(string $event): bool
     {
         $messageEvent = $this->messageObject["events"][0];
-
+        // TODO: 現状これが一番わかり易い。拡張性も考え、今後ロジック化出来たらいい。
         switch ($messageEvent["type"]) {
             case "message":
                 if ($event === "message") return true;
