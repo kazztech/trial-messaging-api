@@ -1,6 +1,4 @@
-<?php
-// MessagingApiクラスの使い方例
-
+<?php // MessagingApiクラスの使い方例
 require "./MessagingApi.php";
 
 // MessagingAPIの設定画面から発行されるもの
@@ -58,7 +56,7 @@ if ($line->eventMatched("message/image")) {
     ];
     $messages[] = [
         "type" => "text",
-        "text" => "これ返すよ"
+        "text" => "これ返す"
     ];
     $line->sendReply($messages);
 }
